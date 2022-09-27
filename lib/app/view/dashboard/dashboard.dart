@@ -40,7 +40,7 @@ class _DashboardTabsState extends State<DashboardTabs> {
     });
     _children.add({
       "title": "Profile",
-      "widget": const Profile(),
+      "widget":  Profile(),
     });
     
     super.initState();

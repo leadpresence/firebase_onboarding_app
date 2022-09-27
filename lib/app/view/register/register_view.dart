@@ -46,7 +46,7 @@ class RegisterView extends GetView<RegisterViewModel> {
             ),
             const Gap(20),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 40, 24, 4),
+              padding: const EdgeInsets.fromLTRB(20, 40, 20, 4),
               child: CustomTextField(
                 hintText: "Name",
                 keyboardType: TextInputType.text,
@@ -57,7 +57,7 @@ class RegisterView extends GetView<RegisterViewModel> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -69,7 +69,7 @@ class RegisterView extends GetView<RegisterViewModel> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 40, 24, 4),
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
               child: CustomTextField(
                 hintText: "Email",
                 keyboardType: TextInputType.text,
@@ -80,7 +80,7 @@ class RegisterView extends GetView<RegisterViewModel> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -92,8 +92,9 @@ class RegisterView extends GetView<RegisterViewModel> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 8, 24, 4),
+              padding: const EdgeInsets.fromLTRB(20, 8, 28, 4),
               child: CustomTextField(
+                isPasswordField: true,
                 hintText: "Password",
                 textController: viewModel.passwordCtrl,
               ),

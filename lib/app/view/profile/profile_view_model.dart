@@ -15,7 +15,6 @@ class ProfileViewModel extends GetxController {
     super.onInit();
   }
 
-
   getCurrentUser() async{
      final user = utilsProvider.user;
      if (user != null) {
