@@ -32,7 +32,7 @@ class _DashboardTabsState extends State<DashboardTabs> {
     });
     _children.add({
       "title": "search",
-      "widget": const SearchUserView(),
+      "widget":   SearchUserView(),
     });
     _children.add({
       "title": "Post",

@@ -8,25 +8,44 @@ class HomeViewModel extends GetxController {
   final utilsProvider = Get.find<UtilsProvider>();
   late DocumentSnapshot querySnapshot;
 
-  Future<List<BlogPost>> getBlogPost() async {
-    try {} catch (e) {}
-    return [];
-  }
+  Stream<QuerySnapshot>? getMoviesPosts() {
+    Stream<QuerySnapshot> result;
+    try {
+      result = utilsProvider.firebaseFirestore.collection(
+          utilsProvider.blogCollectionPath)
+          .where('category',whereIn: ['movies'])
+          .snapshots();
+      if (kDebugMode) {
+        print("Post::{$result}");
+      }
+      return result;
+    } catch (e) {
+      return null;
+    }
 
+  }
+  Stream<QuerySnapshot>? getSportsPosts() {
+    Stream<QuerySnapshot> result;
+    try {
+      result = utilsProvider.firebaseFirestore.collection(
+          utilsProvider.blogCollectionPath)
+          .where('category',whereIn: ['sports'])
+          .snapshots();
+      if (kDebugMode) {
+        print("Post::{$result}");
+      }
+      return result;
+    } catch (e) {
+      return null;
+    }
+
+  }
   Stream<QuerySnapshot>? getRealtimeBlogPost() {
     Stream<QuerySnapshot> result;
-    //   (query) => query.docs
-    //       .map((fans) => BlogPost.fromMap(fans.data()))
-    //       .toList());
     try {
       result = utilsProvider.firebaseFirestore.collection(
           utilsProvider.blogCollectionPath).snapshots();
-
-      // var results = utilsProvider.firebaseFirestore
-      //     .collection(utilsProvider.blogCollectionPath)
-      //     .snapshots();
       if (kDebugMode) {
-
         print("Post::{$result}");
       }
       return result;
@@ -36,10 +55,17 @@ class HomeViewModel extends GetxController {
 
   }
 
-  final posts = <BlogPost>[].obs;
 
+
+@override
+void onDisposed(){
+    super.dispose();
+}
   @override
   void onInit() async {
+
+    getMoviesPosts();
+    getSportsPosts();
     getRealtimeBlogPost();
     super.onInit();
   }

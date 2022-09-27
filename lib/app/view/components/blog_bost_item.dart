@@ -1,10 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../models/blog_post.dart';
 import '../home/blog_datail_view.dart';
 import 'custom_l_button.dart';
