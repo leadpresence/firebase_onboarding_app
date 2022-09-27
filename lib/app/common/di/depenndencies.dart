@@ -10,7 +10,7 @@ class UtilsProvider extends GetxController{
   final storageRef = FirebaseStorage.instance.ref();
 
   String collectionPath = "";
-   String blogCollectionPath = "MBlogPosts'";
+   String blogCollectionPath = "MBlogPosts";
 
 
 }

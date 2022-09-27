@@ -17,6 +17,7 @@ class BlogPost {
     required this.category,
     required this.content,
     required this.imageLink,
+    DocumentReference? reference
   });
 
   String author="";

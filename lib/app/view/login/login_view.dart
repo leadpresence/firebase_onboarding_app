@@ -82,6 +82,7 @@ class LoginView extends GetView<LogingViewModel> {
 
                   Padding(
                     padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+
                     child:  CustomButton(
                       buttonColor: const Color(0xFFE1BEE7),
                       buttonTextColor: Colors.black,

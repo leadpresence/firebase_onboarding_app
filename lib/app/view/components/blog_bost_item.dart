@@ -10,17 +10,18 @@ import '../home/blog_datail_view.dart';
 import 'custom_l_button.dart';
 
 class BlogPostWidget extends StatelessWidget {
-  final DocumentSnapshot data;
+  final Map<String, dynamic> data;
 
   const BlogPostWidget({
-    required Key key,
+    required Key? key,
     required this.data,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final blogData = BlogPost.fromSnapshot(data);
-    return Padding(
+    final blogData = data;
+    return
+      Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Stack(
         children: <Widget>[
@@ -59,7 +60,7 @@ class BlogPostWidget extends StatelessWidget {
                           color: Colors.grey[300],
                           image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: NetworkImage(blogData.imageLink)),
+                              image: NetworkImage(blogData['imageLink'])),
                           borderRadius: BorderRadius.circular(5)),
                     ),
                   ),
@@ -77,7 +78,7 @@ class BlogPostWidget extends StatelessWidget {
                       title: Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Text(
-                          blogData?.title ?? '',
+                          blogData['title'] ?? '',
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                           style: const TextStyle(
@@ -89,7 +90,7 @@ class BlogPostWidget extends StatelessWidget {
                         children: <Widget>[
                           const SizedBox(height: 10),
                           Text(
-                            blogData?.category ?? "",
+                            blogData['category'] ?? "",
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                                 color: Colors.purpleAccent,
@@ -98,7 +99,7 @@ class BlogPostWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            blogData?.title ?? "",
+                            blogData['title'] ?? "",
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(

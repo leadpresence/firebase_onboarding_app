@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:mlog/app/common/di/depenndencies.dart';
 import 'package:mlog/app/models/blog_post.dart';
@@ -13,19 +14,36 @@ class HomeViewModel extends GetxController {
   }
 
   Stream<QuerySnapshot>? getRealtimeBlogPost() {
-    //   var result = utilsProvider.firebaseFirestore.collection(utilsProvider.collectionPath).snapshots().map(
-//       (query) => query.docs
-//           .map((fans) => BlogPost.fromMap(fans.data()))
-//           .toList());
+    Stream<QuerySnapshot> result;
+    //   (query) => query.docs
+    //       .map((fans) => BlogPost.fromMap(fans.data()))
+    //       .toList());
     try {
-      var results = utilsProvider.firebaseFirestore
-          .collection(utilsProvider.blogCollectionPath)
-          .snapshots();
-      return results;
+      result = utilsProvider.firebaseFirestore.collection(
+          utilsProvider.blogCollectionPath).snapshots();
+
+      // var results = utilsProvider.firebaseFirestore
+      //     .collection(utilsProvider.blogCollectionPath)
+      //     .snapshots();
+      if (kDebugMode) {
+
+        print("Post::{$result}");
+      }
+      return result;
     } catch (e) {
       return null;
     }
 
-    return null;
   }
+
+  final posts = <BlogPost>[].obs;
+
+  @override
+  void onInit() async {
+    getRealtimeBlogPost();
+    super.onInit();
+  }
+
+
+
 }
