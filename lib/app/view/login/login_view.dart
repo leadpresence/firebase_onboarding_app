@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mlog/app/view/login/login_view_model.dart';
+import 'package:mlog/app/view/register/register_view.dart';
 
 import '../../common/utils/utils.dart';
 import '../components/custom_l_button.dart';
@@ -82,7 +84,6 @@ class LoginView extends GetView<LogingViewModel> {
 
                   Padding(
                     padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-
                     child:  CustomButton(
                       buttonColor: const Color(0xFFE1BEE7),
                       buttonTextColor: Colors.black,
@@ -113,6 +114,43 @@ class LoginView extends GetView<LogingViewModel> {
                       },
                     ),
                   ),
+                  const Gap(12),
+
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Don’t have an account?',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.mulish(
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal,
+                            color: const Color(0xff12121D).withOpacity(.6),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.off(() =>  RegisterView());
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Text(
+                              'Register',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.mulish(
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                                color: const Color(0xff262254),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
                 ],
               ),
             ),

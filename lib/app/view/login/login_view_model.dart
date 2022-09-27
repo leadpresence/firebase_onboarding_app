@@ -1,11 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mlog/app/view/dashboard/dashboard.dart';
 
+import '../../common/di/depenndencies.dart';
+import '../../models/user.dart';
+
 class LogingViewModel extends GetxController {
+
+  final utilsProvider = Get.find<UtilsProvider>();
+
   RxString emailObserver = ''.obs;
+  Rx<UserModel> rxUser = UserModel().obs;
   final loginFormKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -53,6 +61,35 @@ class LogingViewModel extends GetxController {
     navigateToHomeScreen;
   }
 
+  Future<UserModel?> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final userCredential = await utilsProvider.auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      rxUser.value = UserModel(id: userCredential.user?.uid.toString(),
+          firstName: userCredential.user?.displayName,
+          lastName: userCredential.user?.displayName,
+          email: userCredential.user?.email,
+          imageUrl: userCredential.user?.photoURL);
+      navigateToHomeScreen();
+      return rxUser.value ;
+    }on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        if (kDebugMode) {
+          print('No user found for that email.');
+        }
+      } else if (e.code == 'wrong-password') {
+        if (kDebugMode) {
+          print('Wrong password provided for that user.');
+        }
+      }
+  }
+  }
+
   navigateToHomeScreen() {
     emailController.text = '';
     passwordController.text = '';
@@ -76,11 +113,11 @@ class LogingViewModel extends GetxController {
         accessToken: googleSignInAuthentication?.accessToken,
         idToken: googleSignInAuthentication?.idToken,
       );
-      final authResult = await _auth.signInWithCredential(credential);
+      final authResult = await utilsProvider.auth.signInWithCredential(credential);
       final User? user = authResult.user;
       assert(user?.isAnonymous == false);
       assert(await user?.getIdToken() != null);
-      final User? currentUser = _auth.currentUser;
+      final User? currentUser = utilsProvider.auth.currentUser;
       assert(user?.uid == currentUser?.uid);
       isLoadingGoogle.value=false;
       navigateToHomeScreen(); // navigate to your wanted page

@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:mlog/app/view/login/login_view.dart';
 import 'package:mlog/app/view/register/register_view_mode.dart';
 
 import '../../common/utils/utils.dart';
@@ -123,6 +124,42 @@ class RegisterView extends GetView<RegisterViewModel> {
               ),
             ),
             const Gap(14),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already have an account?',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.mulish(
+                      fontSize: 12,
+                      fontWeight: FontWeight.normal,
+                      color: const Color(0xff12121D).withOpacity(.6),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.off(() =>  LoginView());
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Text(
+                        'Login',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.mulish(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                          color: const Color(0xff262254),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
           ],
         ),
       ),
