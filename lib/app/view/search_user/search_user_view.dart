@@ -55,36 +55,4 @@ class SearchUserView extends StatelessWidget {
     ])))));
   }
 }
-/**
- * Container(
-    margin: EdgeInsets.symmetric(horizontal: 20),
-    decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(10),
-    boxShadow: [
-    BoxShadow(
-    spreadRadius: -9,
-    color: Colors.grey.withOpacity(0.5),
-    blurRadius: 25,
-    ),
-    ],
-    ),
-    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-    child: new TextField(
-    controller: filter,
-    autofocus: false,
-    onTap: searchPressed,
-    decoration: new InputDecoration(
-    border: InputBorder.none,
-    prefixIcon: searchIcon == Icon(FluentIcons.search_24_regular)
-    ? searchIcon
-    : null,
-    suffixIcon: searchIcon == Icon(FluentIcons.search_24_regular)
-    ? null
-    : searchIcon,
-    hintText: 'Search...',
-    hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
-    ),
-    ),
-    ),
- * */
+
