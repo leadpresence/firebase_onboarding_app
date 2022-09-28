@@ -119,7 +119,8 @@ class RegisterView extends GetView<RegisterViewModel> {
                   isLoading: viewModel.isLoading.value,
                   buttonText: "Submit",
                   onPressed: () {
-                    viewModel.favFormValidator(key);
+                    viewModel.registrationFormValidator(key);
+
                   },
                 ),
               ),

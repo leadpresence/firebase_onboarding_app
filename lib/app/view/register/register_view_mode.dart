@@ -20,7 +20,7 @@ class RegisterViewModel extends GetxController {
 
   Rx<UserModel> rxUser = UserModel().obs;
 
-  favFormValidator(Key? k) {
+  registrationFormValidator(Key? k) {
     /// validates empty fields on the form
     if ((GetUtils.isBlank(nameCtrl.text)) == true) {
       return errorName.value = '      Name field cannot be blank.';

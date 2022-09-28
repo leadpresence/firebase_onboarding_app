@@ -9,7 +9,14 @@ import 'dart:io';
 import '../../common/di/depenndencies.dart';
 
 class NewBlogPostViewModel extends GetxController {
+  final GlobalKey creatNewPostFormKey = GlobalKey();
+  RxString errorName = "".obs;
+  RxString articleTitleError = "".obs;
+  RxString contentTitleError = "".obs;
+
+
   final utilsProvider = Get.find<UtilsProvider>();
+  final TextEditingController authorNameCtrl = TextEditingController();
   final TextEditingController articleTitleCtrl = TextEditingController();
   final TextEditingController contentCtrl = TextEditingController();
   Rx<bool> isLoading = false.obs;
@@ -78,4 +85,19 @@ class NewBlogPostViewModel extends GetxController {
       }
 
   }
+
+  postFormValidator() {
+    /// validates empty fields on the form
+    if ((GetUtils.isBlank(authorNameCtrl.text)) == true) {
+      return errorName.value = '      Name field cannot be blank.';
+    } else if ((GetUtils.isBlank(articleTitleCtrl.text)) == true) {
+      articleTitleError.value = '      Title field cannot be blank.';
+    } else if ((GetUtils.isBlank(contentCtrl.text)) == true) {
+      contentTitleError.value = '      Content field cannot be blank.';
+    } else {
+      createBlogPost();
+    }
+  }
+
+  createBlogPost(){}
 }

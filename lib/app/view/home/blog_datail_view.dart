@@ -39,8 +39,6 @@ class BlogDetailView extends GetView<HomeViewModel> {
                           fit: BoxFit.cover,
                           image: NetworkImage(post['imageLink'])),
                       borderRadius: BorderRadius.circular(5)),
-
-
                 ),
                 const SizedBox(height: 10,),
                 Container(
