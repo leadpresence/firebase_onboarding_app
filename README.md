@@ -7,6 +7,7 @@ A new Flutter that shows recent sport and movies news.
 - clone project 
 - You can get apk from the build android folder
 - run [Flutter pub get]
+- view post in realtime from firebase real time database
 -  User can register with name , email and password
 - Usr can login after registrationn with email and password or with google
 - User can see all recent news on sports and movies
