@@ -36,7 +36,7 @@ class _DashboardTabsState extends State<DashboardTabs> {
     });
     _children.add({
       "title": "Post",
-      "widget": const NewBlogView(),
+      "widget":   NewBlogView(),
     });
     _children.add({
       "title": "Profile",

@@ -99,5 +99,7 @@ class NewBlogPostViewModel extends GetxController {
     }
   }
 
-  createBlogPost(){}
+  createBlogPost(){
+
+  }
 }
