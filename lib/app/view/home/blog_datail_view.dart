@@ -11,7 +11,7 @@ class BlogDetailView extends GetView<HomeViewModel> {
 
   BlogDetailView({Key? key, required this.post}) : super(key: key);
   @override
-  final HomeViewModel viewModel = Get.put(HomeViewModel());
+  final HomeViewModel viewModel = Get.find();
 
   @override
   Widget build(BuildContext context) {

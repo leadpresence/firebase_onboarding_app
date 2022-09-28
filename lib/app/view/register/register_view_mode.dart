@@ -33,29 +33,7 @@ class RegisterViewModel extends GetxController {
     }
   }
 
-  registerUserToMlog() {
-    ///register user to firbase db
-    isLoading.value = true;
-    var name = nameCtrl.text.toString();
-    var email = emailCtrl.text.toString();
-    var age = passwordCtrl.text.toString();
 
-    // firebaseFirestore
-    //     .collection(collectionPath)
-    //     .add(FanxtarsModel(
-    //             name: name,
-    //             phone: phone,
-    //             age: age,
-    //             favorite: favorite,
-    //             city: city,
-    //             dateJoined: dateJoined)
-    //         .toMap())
-    //     .then((value) {
-    //   print("User Added");
-    // }).catchError((error) => print("Failed to add favorites: $error"));
-
-    isLoading.value = false;
-  }
 
   Future<UserModel?> createUserWithEmailAndPassword() async {
     isLoading.value = true;

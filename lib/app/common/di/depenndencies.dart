@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class UtilsProvider extends GetxController{
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-  final storageRef = FirebaseStorage.instance.ref();
+  final storageRef = FirebaseStorage.instance;
   final FirebaseAuth auth = FirebaseAuth.instance;
   get user => auth.currentUser;
    String blogCollectionPath = "MBlogPosts";

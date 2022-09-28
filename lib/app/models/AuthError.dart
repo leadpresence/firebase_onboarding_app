@@ -1,4 +1,6 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
+
 enum AuthenticationError {
   invalidEmail,
   userDisabled,
@@ -10,7 +12,7 @@ enum AuthenticationError {
   weakPassword,
   error,
 }
-AuthenticationError _determineError(auth.FirebaseAuthException exception) {
+AuthenticationError _determineError(FirebaseAuthException exception) {
   switch (exception.code) {
     case 'invalid-email':
       return AuthenticationError.invalidEmail;
@@ -33,5 +35,4 @@ AuthenticationError _determineError(auth.FirebaseAuthException exception) {
     default:
       return AuthenticationError.error;
   }
-}
 }

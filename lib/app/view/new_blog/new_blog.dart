@@ -36,16 +36,30 @@ class NewBlogView extends GetView<NewBlogPostViewModel> {
                               ],
                             ),
                             const Gap(20),
-                            ElevatedButton.icon(
-                              onPressed: () {
-                                viewModel.pickImage(context);
-                              },
-                              icon: const Icon(
-                                Icons.image,
-                                size: 24.0,
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          viewModel.pickImage(context);
+                        },
+                        icon: Row(
+                          children: [
+                            viewModel.imageLoading.value?const SizedBox(
+                              height: 16,
+                              width: 16,
+                              child:
+                              CircularProgressIndicator(
+                                color: Colors.white,
+                                strokeWidth: 5,
                               ),
-                              label: const Text('Post header image'), // <-- Text
+                            ):const SizedBox(),
+                            const Icon(
+                              Icons.image,
+                              size: 24.0,
                             ),
+                          ],
+                        ),
+                        label: const Text('Post header image'), // <-- Text
+                      ),
+
                             const Gap(20),
                             Container(
                               width: screenWidth(context),
@@ -58,8 +72,6 @@ class NewBlogView extends GetView<NewBlogPostViewModel> {
                                       image: NetworkImage(viewModel.imageDownloadUrl.value.toString())),
                                   borderRadius: BorderRadius.circular(5)),
                             ),
-                            const Gap(20),
-
                             const Gap(20),
                             Padding(
                               padding: const EdgeInsets.fromLTRB(20, 40, 20, 4),
