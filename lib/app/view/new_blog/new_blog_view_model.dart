@@ -96,6 +96,7 @@ class NewBlogPostViewModel extends GetxController {
             .toMap())
         .then((value) {
       isLoading.value = false;
+      BotToast.showText(text: "Post made successfully");
       if (kDebugMode) {
         print("Post Added");
       }
