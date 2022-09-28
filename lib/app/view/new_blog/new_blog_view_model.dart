@@ -92,7 +92,7 @@ class NewBlogPostViewModel extends GetxController {
                 title: articleTitleCtrl.text.toString(),
                 content: contentCtrl.text.toString(),
                 imageLink: imageDownloadUrl.value.toString(),
-                category: category.value.toString())
+                category: 'movies')
             .toMap())
         .then((value) {
       isLoading.value = false;

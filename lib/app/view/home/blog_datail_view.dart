@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mlog/app/models/blog_post.dart';
 import 'package:mlog/app/view/components/custom_l_button.dart';
-
 import 'home_view_model.dart';
 
 class BlogDetailView extends GetView<HomeViewModel> {
@@ -28,7 +26,9 @@ class BlogDetailView extends GetView<HomeViewModel> {
                     right: 24.0,
                     top: 24.0,
                   ),
-                  child: Column(children: [
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                       Container(
                       width: screenWidth(context),
                   height: screenWidth(context) * 0.5,
@@ -46,6 +46,7 @@ class BlogDetailView extends GetView<HomeViewModel> {
                     child:  Text(
                       "Title: "+ post['title'],
                       style: const  TextStyle(
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     )),
@@ -58,7 +59,7 @@ class BlogDetailView extends GetView<HomeViewModel> {
                       maxLines: 1000,
                       overflow: TextOverflow.ellipsis,
                       style:  const TextStyle(
-                        fontSize: 10,
+                        fontSize: 14,
                         fontWeight: FontWeight.normal,
                       ),
                     )),
