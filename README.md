@@ -7,6 +7,7 @@ A new Flutter app for staff  tracking
 Flutter/Dart, Firebase , Firebase Auth
 
 ## Getting Started
+- Read https://docs.google.com/document/d/1lOv3wZtF-Yh1KCLiSee6TLOuqn-XC4Zna3xO6P3X1Ro/edit?usp=sharing
 - clone project 
 - You can get apk from the build android folder
 - run [Flutter pub get]
