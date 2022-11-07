@@ -22,7 +22,7 @@ class SettingsPage extends GetView<LogingViewModel> {
       backgroundColor: white,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
-        child: getAppBar("Settings", context,
+        child: getAppBar("Settings", context,showBack: false,
             showActions: true,
             actionIcon: IconButton(
                 onPressed: () {

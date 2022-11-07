@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:mlog/controllers/registration_controller.dart';
-
 import '../theme/color.dart';
+class ProfilePage extends StatelessWidget {
 
-class ProfilePage extends GetView<RegisterViewModel> {
 
-  @override
-  final RegisterViewModel controller  = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,7 +129,7 @@ class ProfilePage extends GetView<RegisterViewModel> {
                               width: 15,
                             ),
                             Text(
-                             GetStorage().read('username')?? "Felix chi",
+                            "Felix chi",
                               style: TextStyle(
                                 fontSize: 15,
                               ),

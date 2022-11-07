@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:blurry_modal_progress_hud/blurry_modal_progress_hud.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +17,7 @@ class SignupPage extends GetView<RegisterViewModel> {
   SignupPage({Key? key}) : super(key: key);
 
   @override
-  final RegisterViewModel controller = Get.find();
+  final RegisterViewModel controller = Get.put(RegisterViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -79,13 +77,13 @@ class SignupPage extends GetView<RegisterViewModel> {
                                     }),
                                 const SizedBox(width: 10),
                                 SizedBox(
-                                  width: deviceSize.width / 2 +
-                                      deviceSize.width / 8,
+                                  width: deviceSize.width / 2 ,
+
                                   child: Text(
                                     controller.selectedInterestsList.value
                                         .join(" , "),
                                     overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
+                                    maxLines: 4,
                                   ),
                                 ),
                               ],
@@ -150,6 +148,8 @@ class SignupPage extends GetView<RegisterViewModel> {
                             buttonText: "Complete registration",
                             onPressed: () {
                               //validate form and submit
+                              GetStorage().write("username",
+                                  controller.userNameCtrl.text.toString());
                               controller.registrationFormValidator(key);
                             },
                           ),

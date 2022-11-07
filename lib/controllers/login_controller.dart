@@ -9,6 +9,7 @@ import '../core/core_utils.dart';
 import '../models/user_model.dart';
 import '../pages/root_app.dart';
 
+/// Viewmodel for all Auth classes
 class LogingViewModel extends GetxController {
   final utilsProvider = Get.find<UtilsProvider>();
 
@@ -45,6 +46,7 @@ class LogingViewModel extends GetxController {
     return true;
   }
 
+  /// validate login details
   loginFormValidator() {
     if ((GetUtils.isBlank(emailController.text)) == true) {
       return errorEmailMessage.value = "      Email field cannot be blank.";
@@ -120,7 +122,6 @@ class LogingViewModel extends GetxController {
             text: "Error occurred updating email \n ${onError.toString()}");
 
       });
-
       return message;
     } catch (e) {
       BotToast.showText(
@@ -205,9 +206,10 @@ class LogingViewModel extends GetxController {
   Future getSignedInUserDetails() async {
     var user = utilsProvider.auth.currentUser;
     updateEmailController.text = user!.email!.toString();
-    updateUsernameController.text = GetStorage().read('username');
+    updateUsernameController.text = GetStorage().read('username')??'';
     if (kDebugMode) {
       print("email:${user!.email!.toString()}");
+      print("Username:${GetStorage().read('username').toString()}");
     }
   }
 

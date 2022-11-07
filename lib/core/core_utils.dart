@@ -6,11 +6,11 @@ import 'package:get/get.dart';
 
 import '../controllers/registration_controller.dart';
 
+/// this  provides a single instance of  Firebase App wide
 class UtilsProvider extends GetxController{
   final storageRef = FirebaseStorage.instance;
   final FirebaseAuth auth = FirebaseAuth.instance;
   get user => auth.currentUser;
-  String blogCollectionPath = "MBlogPosts";
 }
 
 
@@ -19,5 +19,4 @@ Future<void> setDi() async {
   /// firebase
   await Firebase.initializeApp();
   Get.lazyPut<UtilsProvider>(() => UtilsProvider());
-  final RegisterViewModel controller = Get.put(RegisterViewModel());
 }

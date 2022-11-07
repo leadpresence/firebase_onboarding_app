@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import '../../theme/color.dart';
 
 Widget getAppBar(String title, BuildContext context,
-    {bool showActions = false, IconButton? actionIcon = null, Function? backPressed}) {
+    {bool showActions = false, IconButton? actionIcon = null, bool showBack=true, Function? backPressed}) {
   return AppBar(
     elevation: 0,
     backgroundColor: white,
-    leading: IconButton(
+    leading: showBack?IconButton(
         onPressed: () {
           backPressed??Navigator.pop(context);
         },
@@ -16,7 +16,7 @@ Widget getAppBar(String title, BuildContext context,
           Icons.arrow_back_ios_new,
           color: black,
           size: 22,
-        )),
+        )):const SizedBox(),
     title: Text(
       title,
       style: const TextStyle(fontSize: 18, color: black),

@@ -24,12 +24,12 @@ class LoginPage extends GetView<LogingViewModel> {
             backgroundColor: Colors.white,
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(60),
-              child: getAppBar("Login", context,backPressed:(){
+              child: getAppBar("Login",  context,backPressed:(){
                 if(Navigator.of(context).canPop()){
                   Get.back();
 
                 }
-              } ),
+              } ,showBack: false ),
             ),
             body: SingleChildScrollView(
               child: Column(

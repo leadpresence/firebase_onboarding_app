@@ -70,7 +70,7 @@ class RegisterViewModel extends GetxController {
 
       isLoading.value = false;
       /// store user
-      saveUserData(name, email);
+      // saveUserData(name, email);
       saveUserName(name);
       BotToast.showText(text: "Registration successful,please verify account from \n email $email (check Spam too)");
       Get.to(() => AuthMainPage());
@@ -91,7 +91,7 @@ class RegisterViewModel extends GetxController {
       }
     } catch (e) {
       isLoading.value = false;
-      BotToast.showText(text:'An error occured check connect and try again \n ${e.toString()}');
+      BotToast.showText(text:'An error occurred check connect and try again \n ${e.toString()}');
 
       if (kDebugMode) {
         print(e);
@@ -100,8 +100,8 @@ class RegisterViewModel extends GetxController {
     return null;
   }
 
-  saveUserData(String username,email){
-    GetStorage().write("username", username);
+  saveUserData(String email){
+    // GetStorage().write("username", username);
     GetStorage().write("email", email);
   }
 
