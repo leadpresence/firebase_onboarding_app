@@ -16,6 +16,8 @@ Flutter/Dart, Firebase , Firebase Auth
 - User can  update deatils :email,username, password
 - User profile, 
 
+## ERD
+https://drive.google.com/file/d/13z1nLBPOVYuIOdj1y6qd4-xDoMbqUbxN/view?usp=sharing
 
  
 
