@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 
+import '../controllers/registration_controller.dart';
+
 class UtilsProvider extends GetxController{
   final storageRef = FirebaseStorage.instance;
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -17,5 +19,5 @@ Future<void> setDi() async {
   /// firebase
   await Firebase.initializeApp();
   Get.lazyPut<UtilsProvider>(() => UtilsProvider());
-
+  final RegisterViewModel controller = Get.put(RegisterViewModel());
 }

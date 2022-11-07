@@ -206,7 +206,7 @@ class LogingViewModel extends GetxController {
   Future getSignedInUserDetails() async {
     var user = utilsProvider.auth.currentUser;
     updateEmailController.text = user!.email!.toString();
-    updateUsernameController.text = GetStorage().read('email');
+    updateUsernameController.text = GetStorage().read('username');
     if (kDebugMode) {
       print("email:${user!.email!.toString()}");
     }

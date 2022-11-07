@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:blurry_modal_progress_hud/blurry_modal_progress_hud.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../controllers/registration_controller.dart';
@@ -16,7 +19,7 @@ class SignupPage extends GetView<RegisterViewModel> {
   SignupPage({Key? key}) : super(key: key);
 
   @override
-  final RegisterViewModel controller = Get.put(RegisterViewModel());
+  final RegisterViewModel controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -202,6 +205,9 @@ class SignupPage extends GetView<RegisterViewModel> {
     );
   }
 
+  saveListWithGetStorage(String storageKey, List<dynamic> storageValue) async =>
+      await GetStorage().write(storageKey, storageValue);
+
   _showReportDialog(BuildContext context) {
     List<String> temporarySelection = [];
     showDialog(
@@ -222,6 +228,7 @@ class SignupPage extends GetView<RegisterViewModel> {
                 child: const Text("Save"),
                 onPressed: () {
                   controller.selectedInterestsList.value = temporarySelection;
+                  saveListWithGetStorage('interests', temporarySelection);
                   Navigator.of(context).pop();
                 },
               )

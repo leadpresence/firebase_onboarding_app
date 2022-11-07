@@ -57,7 +57,6 @@ class SettingsPage extends GetView<LogingViewModel> {
             ),
             GestureDetector(
               onTap: () {
-                controller.detailEditCaseString.value ='Username';
                 Get.to(UpdateUsernamePage());
               },
               child: Container(
@@ -144,7 +143,6 @@ class SettingsPage extends GetView<LogingViewModel> {
             ),
             GestureDetector(
               onTap: () {
-                controller.detailEditCaseString.value ='Email';
                 Get.to(UpdateEmailPage());
               },
               child: Container(
